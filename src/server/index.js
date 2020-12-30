@@ -25,7 +25,8 @@ const corsOptions = {
 };
 
 app.get("/", function (req, res) {
-    res.sendFile(process.cwd() + "/dist/index.html");
+    console.log(process.cwd());
+    res.sendFile("index.html");
 });
 
 // designates what port the app will listen to for incoming requests
