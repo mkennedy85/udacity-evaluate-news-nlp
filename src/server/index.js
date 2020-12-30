@@ -24,10 +24,10 @@ const corsOptions = {
     optionsSuccessStatus: 200,
 };
 
-app.get("/", function (req, res) {
-    console.log(process.cwd());
-    res.sendFile(process.cwd() + "/dist/index.html");
-});
+// app.get("/", function (req, res) {
+//     console.log(process.cwd());
+//     res.sendFile(process.cwd() + "/dist/index.html");
+// });
 
 // designates what port the app will listen to for incoming requests
 app.listen(port, function () {
