@@ -1,33 +1,37 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const WorkboxPlugin = require("workbox-webpack-plugin");
 
 module.exports = {
-    entry: './src/client/index.js',
+    entry: "./src/client/index.js",
     optimization: {
         minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
     },
     output: {
-        libraryTarget: 'var',
-        library: 'Client'
+        libraryTarget: "var",
+        library: "Client",
     },
-    mode: 'production',
+    mode: "production",
     module: {
         rules: [
             {
-                test: '/\.js$/',
+                test: "/.js$/",
                 exclude: /node_modules/,
-                loader: "babel-loader"
+                loader: "babel-loader",
             },
             {
                 test: /\.scss$/,
-                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
-            }
-        ]
+                use: ["style-loader", "css-loader", "sass-loader"],
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                loader: "file-loader",
+            },
+        ],
     },
     plugins: [
         new HtmlWebPackPlugin({
@@ -35,6 +39,7 @@ module.exports = {
             filename: "./index.html",
         }),
         new WorkboxPlugin.GenerateSW(),
-        new MiniCssExtractPlugin({filename: '[name].css'})
-    ]
-}
+        new MiniCssExtractPlugin({ filename: "[name].css" }),
+    ],
+};
+

@@ -1,28 +1,32 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-    entry: './src/client/index.js',
+    entry: "./src/client/index.js",
     output: {
-        libraryTarget: 'var',
-        library: 'Client'
+        libraryTarget: "var",
+        library: "Client",
     },
-    mode: 'development',
-    devtool: 'source-map',
+    mode: "development",
+    devtool: "source-map",
     module: {
         rules: [
             {
-                test: '/\.js$/',
+                test: "/.js$/",
                 exclude: /node_modules/,
-                loader: "babel-loader"
+                loader: "babel-loader",
             },
             {
                 test: /\.scss$/,
-                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
-            }
-        ]
+                use: ["style-loader", "css-loader", "sass-loader"],
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                loader: "file-loader",
+            },
+        ],
     },
     plugins: [
         new HtmlWebPackPlugin({
@@ -36,7 +40,8 @@ module.exports = {
             verbose: true,
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
-            protectWebpackAssets: false
-        })
-    ]
-}
+            protectWebpackAssets: false,
+        }),
+    ],
+};
+
