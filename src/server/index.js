@@ -6,6 +6,8 @@ const meaningCloudApi = {
     application_key: process.env.API_KEY,
 };
 
+const port = process.env.PORT;
+
 var path = require("path");
 const express = require("express");
 
@@ -29,8 +31,8 @@ app.get("/", function (req, res) {
 });
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-    console.log("NLP app listening at http://localhost:8080/");
+app.listen(port, function () {
+    console.log(`NLP app listening at http://localhost:${port}/`);
 });
 
 const fetch = require("node-fetch");
