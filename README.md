@@ -33,6 +33,6 @@ npm run build-prod
 npm run start
 ```
 
-## Deploying
+## Deployed
 
-A great step to take with your finished project would be to deploy it! Unfortunately its a bit out of scope for me to explain too much about how to do that here, but checkout [Netlify](https://www.netlify.com/) or [Heroku](https://www.heroku.com/) for some really intuitive free hosting options.
+This app has been deployed to Heroku and can be found [here](https://mighty-dusk-28999.herokuapp.com).
