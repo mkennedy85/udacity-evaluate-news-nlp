@@ -7,7 +7,7 @@ function handleSubmit(event) {
 
     if (validSentence) {
         const postTxt = async (txt = "") => {
-            const request = await fetch(`http://localhost:8080/analysis?txt=${txt}`, {
+            const request = await fetch(`/analysis?txt=${txt}`, {
                 method: "POST",
                 credentials: "same-origin",
             });

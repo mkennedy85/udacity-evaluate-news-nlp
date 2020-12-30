@@ -25,7 +25,7 @@ app.get("/", function (req, res) {
 
 // designates what port the app will listen to for incoming requests
 app.listen(port, function () {
-    console.log(`NLP app listening at http://localhost:${port}/`);
+    console.log(`NLP app listening on port: ${port}`);
 });
 
 const fetch = require("node-fetch");
