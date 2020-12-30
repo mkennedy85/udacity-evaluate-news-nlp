@@ -20,7 +20,6 @@ const cors = require("cors");
 app.use(cors());
 
 app.get("/", function (req, res) {
-    console.log(path.resolve());
     res.sendFile(path.resolve("dist/index.html"));
 });
 
