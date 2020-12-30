@@ -20,8 +20,8 @@ const cors = require("cors");
 app.use(cors());
 
 app.get("/", function (req, res) {
-    console.log(process.cwd());
-    res.sendFile(process.cwd() + "/dist/index.html");
+    console.log(path.resolve());
+    res.sendFile(path.resolve("dist/index.html"));
 });
 
 // designates what port the app will listen to for incoming requests
